@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="400.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<VBox maxHeight="400.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="20.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="launch.Lanch_revue">
    <children>
       <GridPane prefHeight="328.0" prefWidth="510.0" style="-fx-border-color: black; -fx-border-width: 2px;">
         <columnConstraints>
@@ -32,7 +31,7 @@
             <Label alignment="BOTTOM_LEFT" prefHeight="16.0" prefWidth="48.0" text="Tarif :" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
             <Label prefHeight="16.0" prefWidth="85.0" text="Périodicité :" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
             <Label prefHeight="16.0" prefWidth="199.0" text="euros au numéro" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <TextField fx:id="tf_tarif" maxWidth="60.0" prefHeight="29.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="tf_tarif" maxWidth="60.0" onInputMethodTextChanged="#test_num" prefHeight="29.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="tf_titre" prefHeight="26.0" prefWidth="280.0" GridPane.columnIndex="1" />
             <TextField fx:id="tf_description" maxWidth="260.0" prefHeight="70.0" prefWidth="0.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
             <ComboBox fx:id="cbb_perio" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
@@ -43,7 +42,7 @@
       </GridPane>
       <FlowPane alignment="CENTER" prefHeight="33.0" prefWidth="456.0">
          <children>
-            <Button fx:id="btn_creer" mnemonicParsing="false" onMouseClicked="#creerModele" text="Créer" />
+            <Button mnemonicParsing="false" onAction="#creation" text="Créer" />
          </children>
          <VBox.margin>
             <Insets />
