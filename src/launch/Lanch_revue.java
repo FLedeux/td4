@@ -2,6 +2,7 @@ package launch;
 
 import java.net.URL;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -13,11 +14,11 @@ import javafx.stage.Stage;
 
 public class Lanch_revue extends Application{
 
-	private Label lbl_display;
-	private  TextField tf_taif;
-	private TextField  tf_titre;
-	private TextField tf_descripton;
-	private ComboBox cdd_perio;
+@FXML	private Label lbl_display;
+@FXML	private  TextField tf_taif;
+@FXML	private TextField  tf_titre;
+@FXML	private TextField tf_descripton;
+@FXML	private ComboBox cdd_perio;
 	
 	
 	
@@ -44,11 +45,11 @@ public class Lanch_revue extends Application{
 
 	
 	public void creation() {
-// si boolÃ©en de tarif est false alors pas creer : message d'erreur
+// crée, mais verif si titre et périodicité selectionné
 	}
 	
 	public void test_num() {
-		//test char par char et fair egaffe a la virgule/point)
+//on key type check docu oracle et  verif si la touche appuyé est un diggit(isdigit) ou est un .
 		
 	}
 	
