@@ -7,7 +7,6 @@ import factory.DAOFactory;
 import factory.Persistance;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,8 +25,8 @@ public class Lanch_revue extends Application implements Initializable {
 @FXML	private Label lbl_display;
 @FXML	private  TextField tf_tarif;
 @FXML	private TextField  tf_titre;
-@FXML	private TextField tf_descripton;
-@FXML	private ComboBox<Periodicite> cdd_perio;
+@FXML	private TextField tf_description;
+@FXML	private ComboBox<Periodicite> cbb_perio;
 	
 	
 	
@@ -55,11 +54,25 @@ public class Lanch_revue extends Application implements Initializable {
 
 	
 	public void creation() {
-
+		lbl_display.setText("");
+		boolean creation = true;
+		if(tf_titre.getText().trim()=="") {
+			lbl_display.setText("le titre ne dois pas être vide; ");
+			creation = false;
+		}
+		if((tf_tarif.getText().trim()=="")&&(Double.valueOf(tf_tarif.getText().trim())==0)) {
+			lbl_display.setText(lbl_display.getText()+"le prix ne dois pas être vide ou égale a zéro; ");
+			creation=false;
+		}
+		if(cbb_perio.getValue()==null) {
+			lbl_display.setText(lbl_display.getText()+"il faut choisir une periodicité");
+			creation=false;
+		}
 		DAOFactory daos = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
-		Revue r = new Revue(0,tf_titre.getText(),tf_descripton.getText(),Double.valueOf(tf_tarif.getText()),tf_titre.getText()+".png",cdd_perio.getValue().getId());
-		daos.getRevueDAO().create(r);
-		
+		if(creation) {
+			Revue r = new Revue(0,tf_titre.getText(),tf_description.getText(),Double.valueOf(tf_tarif.getText()),tf_titre.getText()+".png",cbb_perio.getValue().getId());
+			daos.getRevueDAO().create(r);
+		}
 	}
 	
 	public void test_num() {
@@ -73,9 +86,7 @@ public class Lanch_revue extends Application implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		DAOFactory dao = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
-        System.out.println(this.cdd_perio);
-        
-        this.cdd_perio.setItems(FXCollections.observableArrayList(dao.getPeriodiciteDAO().findAll()));		
+        this.cbb_perio.setItems( FXCollections.observableArrayList(dao.getPeriodiciteDAO().findAll()));		
 	}
 	
 
