@@ -100,5 +100,15 @@ public class ListeMemoirePeriodiciteDAO implements PeriodiciteDAO{
 		}
 		return this.donnees.get(i);
 	}
+	
+	public ArrayList<Periodicite> findall(){
+		return donnees;
+	}
+
+	@Override
+	public ArrayList<Periodicite> findAll() {
+		ListeMemoirePeriodiciteDAO p = new  ListeMemoirePeriodiciteDAO();
+		 return p.donnees;
+	}
 
 }

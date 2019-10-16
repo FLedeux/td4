@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import dao.PeriodiciteDAO;
 import metier.Periodicite;
@@ -145,6 +146,29 @@ public class MySQLPeriodiciteDAO implements PeriodiciteDAO{
 				System.out.println("Pb select" + sqle.getMessage());
 				return null;
 				}
+	}
+
+
+	@Override
+	public ArrayList<Periodicite> findAll() {
+		try {
+			
+		Connection laConnexion = Connexion.creeConnexion();
+		PreparedStatement requete = laConnexion.prepareStatement("Select * From Periodicite");
+		ResultSet res = requete.executeQuery();
+		ArrayList<Periodicite> array = new ArrayList<Periodicite>();
+		
+		while (res.next()) {
+			array.add( new Periodicite(res.getInt("id_periodicite"),res.getString("libelle")));
+			}
+		if (requete != null)requete.close();
+		if (laConnexion != null)laConnexion.close();
+		return array;
+		
+		}catch(SQLException sqle) {
+			System.out.println("Pb select" + sqle.getMessage());
+			return null;
+		}
 	}
 
 }
