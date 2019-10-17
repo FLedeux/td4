@@ -32,7 +32,7 @@ public class Periodicite {
 
 	@Override
 	public String toString() {
-		return "Periodicite [id=" + id + ", nom=" + nom + "]";
+		return nom;
 	}
 
 	@Override

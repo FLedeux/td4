@@ -34,7 +34,7 @@
             <TextField fx:id="tf_tarif" maxWidth="60.0" onKeyTyped="#test_num" prefHeight="29.0" prefWidth="60.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <TextField fx:id="tf_titre" onKeyTyped="#test_vide" prefHeight="26.0" prefWidth="280.0" GridPane.columnIndex="1" />
             <TextField fx:id="tf_description" maxWidth="260.0" prefHeight="70.0" prefWidth="0.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-            <ComboBox fx:id="cbb_perio" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ComboBox fx:id="cbb_perio" onAction="#test_combobox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          </children>
          <opaqueInsets>
             <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
