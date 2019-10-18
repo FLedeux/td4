@@ -55,14 +55,14 @@ public class Lanch_revue extends Application implements Initializable {
 	
 	
 	public static void main(String[] args) {
-		System.out.println("séléctionner le mode de données : 1 pour Liste Mémoire, 2 pour SQL");
+		System.out.println("sï¿½lï¿½ctionner le mode de donnï¿½es : 1 pour Liste Mï¿½moire, 2 pour SQL");
 		int i=0;
 		Scanner sc = new Scanner(System.in);
 		do {
 			i=sc.nextInt();
 		} while(i!=1&&i!=2);
 		if(i==1) daos = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
-		else daos = DAOFactory.getDAOFactory(Persistance.ListeMemoire);
+		else daos = DAOFactory.getDAOFactory(Persistance.MYSQL);
 		launch(args);
 
 	}
